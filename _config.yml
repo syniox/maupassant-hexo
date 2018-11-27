@@ -1,2 +1,21 @@
-fancybox: true
-duoshuo: # your duoshuo id
+fancybox: false
+show_category_count: true
+
+menu: 
+  - page: home
+    directory: .
+  - page: archive
+    directory: archives/
+#  - page: about
+#    directory: about/
+
+widgets:
+  - category
+  - tag
+  - links
+
+links:
+  - title: dedicatus545
+    url: //cnblogs.com/dedicatus545
+  - title: sshockwave
+    url: https://blog.sshockwave.net

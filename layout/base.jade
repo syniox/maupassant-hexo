@@ -18,6 +18,20 @@ html
     link(rel='stylesheet', type='text/css', href='/css/pure-min.css')
     link(rel='stylesheet', type='text/css', href='/css/grids-responsive-min.css')
     link(rel='stylesheet', type='text/css', href='/css/style.css')
+    link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/katex@0.9.0/dist/katex.min.css")
+    style.
+      .category-list-item {
+        display: flex;
+      }
+      .category-list-link {
+        flex: 1 0 auto;
+      }
+      .category-list-count {
+        text-align: right;
+      }
+      .post .post-content pre code {
+        padding: 0 0;
+      }
   body: .body_container 
     #header
       .site-name
@@ -32,18 +46,13 @@ html
         block content
 
       .pure-u-1-4: #sidebar
-        .widget
-          #search
-          != search_form()
-        .widget
-          .widget-title= __('recent')
-          != list_posts()
+        each item in theme.widgets
+          != partial('_widget/' + item + '.jade') 
 
     #footer= '© '
       a(href='/', real="nofollow")= config.title + '.'
       i  Powered by 
       a(rel="nofollow", target="_blank", href="https://hexo.io") Hexo 
-      a(rel="nofollow", target="_blank", href="http://chopstack.com") cho
 
     if theme.fancybox
       != js(['/js/jquery.min.js', '/js/fancybox.pack.js'])
