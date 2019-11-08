@@ -1,5 +1,6 @@
 fancybox: false
 show_category_count: true
+highlight: true
 
 menu: 
   - page: home
