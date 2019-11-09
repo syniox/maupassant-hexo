@@ -1,8 +1,13 @@
 extends base
-- var current_title = page.title || tag.name || category.name || site.title
 
 block title
-  title= current_title
+  if page.category
+     title= page.category + ' - ' + config.title
+  if page.tag
+     title= page.tag + ' - ' + config.title
+  if page.archive
+     title= __('archive') + ' - ' + config.title
+  title= config.title
 block content
   if is_category() || is_tag()
       h1.label-title=  __('reading_label', current_title)

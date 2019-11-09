@@ -1,9 +1,13 @@
 extends base
-- var current_title = page.title || tag.name || category.name || site.title
 
 block title
-  title= current_title
-
+  if page.category
+     title= page.category + ' - ' + config.title
+  if page.tag
+     title= page.tag + ' - ' + config.title
+  if page.archive
+     title= __('archive') + ' - ' + config.title
+  title= config.title
 block content
   .post
     .post-archive
@@ -16,4 +20,4 @@ block content
                 span.date= post.date.format('l')
                 a(href=url_for(post.path), title=post.title)
                   +title(post)
-  include _partial/paginator.jade
+  include _partial/paginator.pug

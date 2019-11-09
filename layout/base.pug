@@ -52,7 +52,7 @@ html
 
       .pure-u-1-4: #sidebar
         each item in theme.widgets
-          != partial('_widget/' + item + '.jade') 
+          != partial('_widget/' + item + '.pug') 
 
     #footer= '© '
       a(href='/', real="nofollow")= config.title + '.'
